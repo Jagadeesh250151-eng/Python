@@ -1,0 +1,80 @@
+class Node:
+    def __init__(self, name, phone):
+        self.name = name
+        self.phone = phone
+        self.next = None
+
+
+class ContactList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, name, phone):
+        new_node = Node(name, phone)
+
+        if self.head is None:
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = new_node
+
+    def delete(self, name):
+        temp = self.head
+        prev = None
+
+        while temp:
+            if temp.name == name:
+                if prev is None:
+                    self.head = temp.next
+                else:
+                    prev.next = temp.next
+                return True
+
+            prev = temp
+            temp = temp.next
+
+        return False
+
+    def search(self, name):
+        temp = self.head
+
+        while temp:
+            if temp.name == name:
+                print(f"{temp.name}: {temp.phone}")
+                return
+            temp = temp.next
+
+        print("Contact not found")
+
+    def display(self):
+        temp = self.head
+
+        while temp:
+            print(f"{temp.name}: {temp.phone}")
+            temp = temp.next
+
+
+# Main program
+contacts = ContactList()
+
+contacts.insert("Alice", "12345")
+contacts.insert("Bob", "67890")
+contacts.insert("Charlie", "54321")
+
+print("Contact List after insertion:")
+contacts.display()
+
+print("Deleting Bob...")
+contacts.delete("Bob")
+
+print("Contact List after deletion:")
+contacts.display()
+
+print("Deleting Eve (not in list)...")
+if not contacts.delete("Eve"):
+    print("Contact not found")
+
+print("Final Contact List:")
+contacts.display()
