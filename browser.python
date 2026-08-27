@@ -1,0 +1,38 @@
+class Stack:
+    def __init__(self):
+        self.s = []
+
+    def push(self, x):
+        self.s.append(x)
+
+    def pop(self):
+        return self.s.pop()
+
+class Queue:
+    def __init__(self):
+        self.q = []
+
+    def enqueue(self, x):
+        self.q.append(x)
+
+    def dequeue(self):
+        return self.q.pop(0)
+
+# Browser history
+s = Stack()
+s.push("google.com")
+s.push("openai.com")
+s.push("github.com")
+
+print("Last visited (popped):", s.pop())
+print("Last visited (popped):", s.pop())
+
+# Print jobs
+q = Queue()
+q.enqueue("Document1.pdf")
+q.enqueue("Document2.pdf")
+q.enqueue("Document3.pdf")
+
+print("Printing Jobs:")
+while q.q:
+    print("Printed:", q.dequeue())
