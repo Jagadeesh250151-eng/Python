@@ -1,0 +1,23 @@
+class Stack:
+
+    def __init__(self):
+        self.stack = []
+
+    def push(self, value):
+        self.stack.append(value)
+
+    def reverse(self):
+        return self.stack[::-1]
+
+
+word = input()
+
+s = Stack()
+
+for ch in word:
+    s.push(ch)
+
+if list(word) == s.reverse():
+    print("Palindrome")
+else:
+    print("Not Palindrome")
