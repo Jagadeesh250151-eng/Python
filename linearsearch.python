@@ -1,0 +1,18 @@
+class Search:
+
+    def find(self, arr, key):
+
+        for i in range(len(arr)):
+
+            if arr[i] == key:
+                print("Element found at index", i)
+                return
+
+        print("Element not found")
+
+
+arr = [10, 20, 30, 40, 50]
+
+obj = Search()
+
+obj.find(arr, 30)
