@@ -1,0 +1,19 @@
+expenses = {}
+
+n = int(input("Enter number of expenses: "))
+
+for i in range(n):
+    category = input("Enter category: ")
+    amount = float(input("Enter amount: "))
+
+    expenses[category] = expenses.get(category, 0) + amount
+
+print("\nExpense Summary")
+
+for category, amount in expenses.items():
+    print(category, ":", amount)
+
+highest = max(expenses, key=expenses.get)
+
+print("\nHighest Spending Category:", highest)
+print("Amount:", expenses[highest])
