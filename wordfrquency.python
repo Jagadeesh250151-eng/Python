@@ -1,0 +1,19 @@
+text = input("Enter a sentence: ").lower()
+
+words = text.split()
+
+frequency = {}
+
+for word in words:
+    word = word.strip(".,!?")
+    frequency[word] = frequency.get(word, 0) + 1
+
+print("\nWord Frequency:")
+
+for word, count in frequency.items():
+    print(word, ":", count)
+
+most_used = max(frequency, key=frequency.get)
+
+print("\nMost Used Word:", most_used)
+print("Frequency:", frequency[most_used])
