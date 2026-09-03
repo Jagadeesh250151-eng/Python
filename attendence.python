@@ -1,0 +1,19 @@
+students = {}
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input("\nEnter student name: ")
+    total = int(input("Enter total classes: "))
+    attended = int(input("Enter attended classes: "))
+
+    percentage = (attended / total) * 100
+
+    students[name] = percentage
+
+print("\nAttendance Report")
+
+for name, percentage in students.items():
+    status = "Eligible" if percentage >= 75 else "Not Eligible"
+
+    print(name, ":", round(percentage, 2), "% -", status)
