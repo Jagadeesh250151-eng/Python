@@ -1,0 +1,12 @@
+class Employee:
+    def __init__(self, name, emp_id):
+        self.name = name
+        self.emp_id = emp_id
+
+    def display(self):
+        print("Name:", self.name)
+        print("Employee ID:", self.emp_id)
+
+
+e = Employee("Rahul", 105)
+e.display()
