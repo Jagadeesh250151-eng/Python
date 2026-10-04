@@ -1,0 +1,14 @@
+mark = 85
+
+if mark >= 90:
+    grade = "A+"
+elif mark >= 80:
+    grade = "A"
+elif mark >= 70:
+    grade = "B"
+elif mark >= 60:
+    grade = "C"
+else:
+    grade = "Fail"
+
+print("Grade =", grade)
