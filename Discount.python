@@ -1,0 +1,6 @@
+price = 1000
+discount = 10
+
+amount = price - (price * discount / 100)
+
+print("Final Price =", amount)
