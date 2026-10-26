@@ -1,0 +1,51 @@
+
+class Node:
+    def __init__(self, coeff, exp):
+        self.coeff = coeff
+        self.exp = exp
+        self.next = None
+
+def create_poly(terms):
+    head = None
+    for coeff, exp in reversed(terms):
+        node = Node(coeff, exp)
+        node.next = head
+        head = node
+    return head
+
+def add_poly(p1, p2):
+    terms = {}
+    for p in [p1, p2]:
+        while p:
+            terms[p.exp] = terms.get(p.exp, 0) + p.coeff
+            p = p.next
+    return create_poly([(terms[e], e) for e in sorted(terms, reverse=True)])
+
+def display(p):
+    parts = []
+    while p:
+        if p.coeff:
+            if p.exp == 0:
+                parts.append(str(p.coeff))
+            elif p.exp == 1:
+                parts.append(f"{p.coeff}x")
+            else:
+                parts.append(f"{p.coeff}x^{p.exp}")
+        p = p.next
+    return " + ".join(parts)
+
+def evaluate(p, x):
+    total = 0
+    while p:
+        total += p.coeff * (x ** p.exp)
+        p = p.next
+    return total
+
+p1 = create_poly([(3, 2), (2, 1), (5, 0)])
+p2 = create_poly([(2, 2), (4, 0)])
+result = add_poly(p1, p2)
+
+print("Tax Formula 1:", display(p1))
+print("Tax Formula 2:", display(p2))
+print("Combined Tax Formula:", display(result))
+print("Tax Amount for income=2:", evaluate(result, 2))
