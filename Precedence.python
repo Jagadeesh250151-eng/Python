@@ -1,0 +1,29 @@
+def precedence(op):
+ return 1 if op in '+-' else (2 if op in '*/' else 0)
+def infix_to_postfix(expr):
+ stack, postfix = [], ""
+ for char in expr:
+ if char.isalnum():
+ postfix += char
+ elif char == '(':
+ stack.append(char)
+ elif char == ')':
+ while stack and stack[-1] != '(':
+ postfix += stack.pop()
+ stack.pop()
+ else:
+ while stack and precedence(stack[-1]) >= precedence(char):
+ postfix += stack.pop()
+ stack.append(char)
+ while stack:
+ postfix += stack.pop()
+ return postfix
+def evaluate_postfix(expr):
+ stack = []
+ for char in expr:
+ if char.isdigit():
+ stack.append(int(char))
+ else:
+ b, a = stack.pop(), stack.pop()
+ if char == '+':
+ stack.append(a + b)
