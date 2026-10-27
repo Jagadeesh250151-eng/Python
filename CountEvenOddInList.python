@@ -1,0 +1,13 @@
+a = [10, 15, 20, 25, 30]
+
+even = 0
+odd = 0
+
+for n in a:
+    if n % 2 == 0:
+        even += 1
+    else:
+        odd += 1
+
+print("Even Count =", even)
+print("Odd Count =", odd)
