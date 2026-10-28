@@ -1,0 +1,5 @@
+text = "Python is very easy"
+
+result = text.replace(" ", "")
+
+print("Result =", result)
