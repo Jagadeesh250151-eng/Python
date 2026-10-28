@@ -1,0 +1,8 @@
+student = {
+    "name": "Arun",
+    "age": 19,
+    "department": "CSE"
+}
+
+for key, value in student.items():
+    print(key, ":", value)
