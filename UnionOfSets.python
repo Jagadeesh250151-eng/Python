@@ -1,0 +1,6 @@
+a = {10, 20, 30}
+b = {30, 40, 50}
+
+result = a.union(b)
+
+print("Union =", sorted(result))
