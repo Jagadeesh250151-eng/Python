@@ -1,0 +1,6 @@
+word1 = "apple"
+word2 = "plane"
+
+common = set(word1) & set(word2)
+
+print("Common Letters =", sorted(common))
