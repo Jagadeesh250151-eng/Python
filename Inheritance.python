@@ -1,0 +1,11 @@
+class Animal:
+    def eat(self):
+        print("Animal is eating")
+
+class Cat(Animal):
+    def sound(self):
+        print("Cat says Meow")
+
+c = Cat()
+c.eat()
+c.sound()
