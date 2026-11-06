@@ -1,0 +1,6 @@
+a = {"Name": "Arun", "Age": 19}
+b = {"City": "Chennai", "Course": "CSE"}
+
+a.update(b)
+
+print(a)
