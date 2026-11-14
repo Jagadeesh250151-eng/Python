@@ -1,0 +1,14 @@
+n = int(input())
+a = [list(map(int, input().split())) for _ in range(n)]
+
+s1 = 0
+s2 = 0
+
+for i in range(n):
+    s1 += a[i][i]
+    s2 += a[i][n - i - 1]
+
+if s1 < 0:
+    print(abs(s1 + s2))
+else:
+    print(abs(s1 - s2))
