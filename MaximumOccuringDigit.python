@@ -1,0 +1,14 @@
+s = input()
+freq = [0] * 10
+
+for ch in s:
+    if ch.isdigit():
+        freq[int(ch)] += 1
+
+ans = 0
+
+for i in range(10):
+    if freq[i] > freq[ans]:
+        ans = i
+
+print(ans)
