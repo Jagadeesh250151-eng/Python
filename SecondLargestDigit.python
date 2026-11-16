@@ -1,0 +1,7 @@
+s = input()
+digits = sorted(set(int(ch) for ch in s if ch.isdigit()))
+
+if len(digits) >= 2:
+    print(digits[-2])
+else:
+    print(-1)
