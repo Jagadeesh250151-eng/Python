@@ -1,0 +1,10 @@
+s = input()
+total = 0
+
+for ch in s:
+    d = int(ch)
+
+    if d in (2, 3, 5, 7):
+        total += d
+
+print(total)
